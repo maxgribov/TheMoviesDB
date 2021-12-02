@@ -23,6 +23,8 @@
 		773AFE9227596DBB007BC61F /* ServerAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */; };
 		773AFE9527596FAF007BC61F /* ServerCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9427596FAF007BC61F /* ServerCommands.swift */; };
 		773AFE972759724C007BC61F /* DiscoverResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 773AFE962759724C007BC61F /* DiscoverResponse.json */; };
+		773AFE9A27597341007BC61F /* ServerAgentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9927597341007BC61F /* ServerAgentMock.swift */; };
+		773AFE9C27597445007BC61F /* DiscoverResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 773AFE9B27597445007BC61F /* DiscoverResponseMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAgentProtocol.swift; sourceTree = "<group>"; };
 		773AFE9427596FAF007BC61F /* ServerCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommands.swift; sourceTree = "<group>"; };
 		773AFE962759724C007BC61F /* DiscoverResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DiscoverResponse.json; sourceTree = "<group>"; };
+		773AFE9927597341007BC61F /* ServerAgentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAgentMock.swift; sourceTree = "<group>"; };
+		773AFE9B27597445007BC61F /* DiscoverResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DiscoverResponseMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				773AFE812759603E007BC61F /* ViewModel */,
 				773AFE822759605C007BC61F /* View */,
 				773AFE8C27596BB6007BC61F /* Extensions */,
+				773AFE9827597328007BC61F /* Mocks */,
 				773AFE5727595FE9007BC61F /* Assets.xcassets */,
 				773AFE5927595FE9007BC61F /* LaunchScreen.storyboard */,
 				773AFE5C27595FE9007BC61F /* Info.plist */,
@@ -218,6 +223,15 @@
 				773AFE9427596FAF007BC61F /* ServerCommands.swift */,
 			);
 			path = Server;
+			sourceTree = "<group>";
+		};
+		773AFE9827597328007BC61F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				773AFE9927597341007BC61F /* ServerAgentMock.swift */,
+				773AFE9B27597445007BC61F /* DiscoverResponseMock.json */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773AFE5B27595FE9007BC61F /* LaunchScreen.storyboard in Resources */,
+				773AFE9C27597445007BC61F /* DiscoverResponseMock.json in Resources */,
 				773AFE5827595FE9007BC61F /* Assets.xcassets in Resources */,
 				773AFE5627595FE7007BC61F /* Main.storyboard in Resources */,
 			);
@@ -353,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773AFE9A27597341007BC61F /* ServerAgentMock.swift in Sources */,
 				773AFE5327595FE7007BC61F /* ViewController.swift in Sources */,
 				773AFE9527596FAF007BC61F /* ServerCommands.swift in Sources */,
 				773AFE9227596DBB007BC61F /* ServerAgentProtocol.swift in Sources */,
