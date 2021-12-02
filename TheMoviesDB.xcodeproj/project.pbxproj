@@ -27,6 +27,9 @@
 		773AFE9C27597445007BC61F /* DiscoverResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 773AFE9B27597445007BC61F /* DiscoverResponseMock.json */; };
 		773AFE9E2759756D007BC61F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9D2759756D007BC61F /* Model.swift */; };
 		773AFEA0275975F6007BC61F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9F275975F6007BC61F /* Action.swift */; };
+		773AFEA227597ABA007BC61F /* RemoteImageAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA127597ABA007BC61F /* RemoteImageAgentProtocol.swift */; };
+		773AFEA427597D66007BC61F /* RemoteImageAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA327597D66007BC61F /* RemoteImageAgent.swift */; };
+		773AFEA627597EA1007BC61F /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA527597EA1007BC61F /* URLSession+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		773AFE9B27597445007BC61F /* DiscoverResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DiscoverResponseMock.json; sourceTree = "<group>"; };
 		773AFE9D2759756D007BC61F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		773AFE9F275975F6007BC61F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		773AFEA127597ABA007BC61F /* RemoteImageAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageAgentProtocol.swift; sourceTree = "<group>"; };
+		773AFEA327597D66007BC61F /* RemoteImageAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageAgent.swift; sourceTree = "<group>"; };
+		773AFEA527597EA1007BC61F /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				773AFE8D27596BDA007BC61F /* JSONDecoder+Extensions.swift */,
+				773AFEA527597EA1007BC61F /* URLSession+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 		773AFE8F27596D81007BC61F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				773AFEA327597D66007BC61F /* RemoteImageAgent.swift */,
 				773AFE9027596D97007BC61F /* Abstract */,
 				773AFE9327596F86007BC61F /* Server */,
 			);
@@ -219,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */,
+				773AFEA127597ABA007BC61F /* RemoteImageAgentProtocol.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -380,9 +389,12 @@
 				773AFEA0275975F6007BC61F /* Action.swift in Sources */,
 				773AFE9527596FAF007BC61F /* ServerCommands.swift in Sources */,
 				773AFE9227596DBB007BC61F /* ServerAgentProtocol.swift in Sources */,
+				773AFEA627597EA1007BC61F /* URLSession+Extensions.swift in Sources */,
 				773AFE8E27596BDA007BC61F /* JSONDecoder+Extensions.swift in Sources */,
+				773AFEA427597D66007BC61F /* RemoteImageAgent.swift in Sources */,
 				773AFE842759676E007BC61F /* Movie.swift in Sources */,
 				773AFE4F27595FE7007BC61F /* AppDelegate.swift in Sources */,
+				773AFEA227597ABA007BC61F /* RemoteImageAgentProtocol.swift in Sources */,
 				773AFE5127595FE7007BC61F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import os
+import UIKit
 
 class Model {
     
@@ -15,13 +16,16 @@ class Model {
     var movies: CurrentValueSubject<[Movie], Never> = .init([])
     
     private let serverAgent: ServerAgentProtocol
+    private let remoteImageAgent: RemoteImageAgentProtocol
+    
     private var bindings = Set<AnyCancellable>()
     private var currentPage = 0
     private let logger = Logger(subsystem: "com.maxgribov.TheMovieDB", category: "Model")
     
-    init(serverAgent: ServerAgentProtocol) {
+    init(serverAgent: ServerAgentProtocol, remoteImageAgent: RemoteImageAgentProtocol) {
         
         self.serverAgent = serverAgent
+        self.remoteImageAgent = remoteImageAgent
         
         bind()
         
@@ -51,6 +55,18 @@ class Model {
                 
                 serverAgent.execute(command: command, completion: completion)
                 
+            case let payload as ModelAction.MoviePoster.Requested:
+                remoteImageAgent.loadImage(for: payload.movie) { [unowned self] response in
+                    
+                    switch response {
+                    case .succeed(let image):
+                        self.action.send(ModelAction.MoviePoster.Complete(movieId: payload.movie.id, image: image))
+                    
+                    case .failed(let error):
+                        self.action.send(ModelAction.MoviePoster.Failed(error: error))
+                    }
+                }
+                
             default:
                 break
             }
@@ -59,7 +75,28 @@ class Model {
     }
 }
 
+//MARK: - Action
+
 enum ModelAction {
     
     struct DiscoverNextMovies: Action {}
+    
+    enum MoviePoster {
+        
+        struct Requested: Action {
+            
+            let movie: Movie
+        }
+        
+        struct Complete: Action  {
+            
+            let movieId: Movie.ID
+            let image: UIImage
+        }
+        
+        struct Failed: Action {
+            
+            let error: Error
+        }
+    }
 }
