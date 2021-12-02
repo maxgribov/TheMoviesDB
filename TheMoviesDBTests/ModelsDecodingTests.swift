@@ -26,4 +26,18 @@ class ModelsDecodingTests: XCTestCase {
         XCTAssertEqual(result.id, 580489)
         XCTAssertEqual(result.title, "Venom: Let There Be Carnage")
     }
+    
+    func testDiscoverResponse() throws {
+     
+        // given
+        let url = bundle.url(forResource: "DiscoverResponse", withExtension: "json")!
+        let json = try Data(contentsOf: url)
+        
+        // when
+        let result = try decoder.decode(ServerCommands.Discover.Response.self, from: json)
+        
+        // then
+        XCTAssertEqual(result.page, 1)
+        XCTAssertEqual(result.results[0].id, 580489)
+    }
 }

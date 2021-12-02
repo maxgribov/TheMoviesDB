@@ -20,6 +20,9 @@
 		773AFE88275969FA007BC61F /* ModelsDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE87275969FA007BC61F /* ModelsDecodingTests.swift */; };
 		773AFE8B27596A8E007BC61F /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 773AFE8A27596A8E007BC61F /* Movie.json */; };
 		773AFE8E27596BDA007BC61F /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE8D27596BDA007BC61F /* JSONDecoder+Extensions.swift */; };
+		773AFE9227596DBB007BC61F /* ServerAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */; };
+		773AFE9527596FAF007BC61F /* ServerCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE9427596FAF007BC61F /* ServerCommands.swift */; };
+		773AFE972759724C007BC61F /* DiscoverResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 773AFE962759724C007BC61F /* DiscoverResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		773AFE87275969FA007BC61F /* ModelsDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDecodingTests.swift; sourceTree = "<group>"; };
 		773AFE8A27596A8E007BC61F /* Movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
 		773AFE8D27596BDA007BC61F /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
+		773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAgentProtocol.swift; sourceTree = "<group>"; };
+		773AFE9427596FAF007BC61F /* ServerCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommands.swift; sourceTree = "<group>"; };
+		773AFE962759724C007BC61F /* DiscoverResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DiscoverResponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 				773AFE5027595FE7007BC61F /* SceneDelegate.swift */,
 				773AFE7E27596016007BC61F /* Domain */,
 				773AFE8027596026007BC61F /* Model */,
+				773AFE8F27596D81007BC61F /* Services */,
 				773AFE812759603E007BC61F /* ViewModel */,
 				773AFE822759605C007BC61F /* View */,
 				773AFE8C27596BB6007BC61F /* Extensions */,
@@ -175,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				773AFE8A27596A8E007BC61F /* Movie.json */,
+				773AFE962759724C007BC61F /* DiscoverResponse.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -185,6 +193,31 @@
 				773AFE8D27596BDA007BC61F /* JSONDecoder+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		773AFE8F27596D81007BC61F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				773AFE9027596D97007BC61F /* Abstract */,
+				773AFE9327596F86007BC61F /* Server */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		773AFE9027596D97007BC61F /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				773AFE9127596DBB007BC61F /* ServerAgentProtocol.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		773AFE9327596F86007BC61F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				773AFE9427596FAF007BC61F /* ServerCommands.swift */,
+			);
+			path = Server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773AFE8B27596A8E007BC61F /* Movie.json in Resources */,
+				773AFE972759724C007BC61F /* DiscoverResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +354,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				773AFE5327595FE7007BC61F /* ViewController.swift in Sources */,
+				773AFE9527596FAF007BC61F /* ServerCommands.swift in Sources */,
+				773AFE9227596DBB007BC61F /* ServerAgentProtocol.swift in Sources */,
 				773AFE8E27596BDA007BC61F /* JSONDecoder+Extensions.swift in Sources */,
 				773AFE842759676E007BC61F /* Movie.swift in Sources */,
 				773AFE4F27595FE7007BC61F /* AppDelegate.swift in Sources */,
