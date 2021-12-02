@@ -30,6 +30,8 @@
 		773AFEA227597ABA007BC61F /* RemoteImageAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA127597ABA007BC61F /* RemoteImageAgentProtocol.swift */; };
 		773AFEA427597D66007BC61F /* RemoteImageAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA327597D66007BC61F /* RemoteImageAgent.swift */; };
 		773AFEA627597EA1007BC61F /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA527597EA1007BC61F /* URLSession+Extensions.swift */; };
+		773AFEA8275981FD007BC61F /* MoviesFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA7275981FD007BC61F /* MoviesFeedViewModel.swift */; };
+		773AFEAA27598265007BC61F /* MoviesFeedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA927598265007BC61F /* MoviesFeedItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		773AFEA127597ABA007BC61F /* RemoteImageAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageAgentProtocol.swift; sourceTree = "<group>"; };
 		773AFEA327597D66007BC61F /* RemoteImageAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageAgent.swift; sourceTree = "<group>"; };
 		773AFEA527597EA1007BC61F /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
+		773AFEA7275981FD007BC61F /* MoviesFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedViewModel.swift; sourceTree = "<group>"; };
+		773AFEA927598265007BC61F /* MoviesFeedItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,8 @@
 		773AFE812759603E007BC61F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				773AFEA7275981FD007BC61F /* MoviesFeedViewModel.swift */,
+				773AFEA927598265007BC61F /* MoviesFeedItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773AFE9E2759756D007BC61F /* Model.swift in Sources */,
+				773AFEA8275981FD007BC61F /* MoviesFeedViewModel.swift in Sources */,
 				773AFE9A27597341007BC61F /* ServerAgentMock.swift in Sources */,
 				773AFE5327595FE7007BC61F /* ViewController.swift in Sources */,
 				773AFEA0275975F6007BC61F /* Action.swift in Sources */,
@@ -394,6 +401,7 @@
 				773AFEA427597D66007BC61F /* RemoteImageAgent.swift in Sources */,
 				773AFE842759676E007BC61F /* Movie.swift in Sources */,
 				773AFE4F27595FE7007BC61F /* AppDelegate.swift in Sources */,
+				773AFEAA27598265007BC61F /* MoviesFeedItemViewModel.swift in Sources */,
 				773AFEA227597ABA007BC61F /* RemoteImageAgentProtocol.swift in Sources */,
 				773AFE5127595FE7007BC61F /* SceneDelegate.swift in Sources */,
 			);
