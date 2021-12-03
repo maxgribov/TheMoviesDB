@@ -26,18 +26,6 @@ class MoviesFeedViewModel {
     
     private func bind() {
         
-        action.sink { [unowned self] action in
-            
-            switch action {
-            case _ as MoviesFeedViewModelAction.DownloadNext:
-                model.action.send(ModelAction.DiscoverNextMovies())
-                
-            default:
-                break
-            }
-            
-        }.store(in: &bindings)
-        
         model.movies
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] movies in
@@ -54,6 +42,18 @@ class MoviesFeedViewModel {
                 }
                 
             }.store(in: &bindings)
+        
+        action.sink { [unowned self] action in
+            
+            switch action {
+            case _ as MoviesFeedViewModelAction.DownloadNext:
+                model.action.send(ModelAction.DiscoverNextMovies())
+                
+            default:
+                break
+            }
+            
+        }.store(in: &bindings)
     }
 }
 

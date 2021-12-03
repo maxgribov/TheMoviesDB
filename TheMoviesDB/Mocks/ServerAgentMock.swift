@@ -39,13 +39,4 @@ class ServerAgentMock: ServerAgentProtocol {
             }
         }
     }
-    
-    func execute<Result>(request: URLRequest, completion: @escaping (ServerResponse<Result, ServerAgentError>) -> Void) where Result : Decodable {
-        
-    }
-    
-    func request<Command>(from command: Command) -> URLRequest? where Command : ServerCommand {
-        
-        return nil
-    }
 }

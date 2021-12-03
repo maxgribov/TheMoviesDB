@@ -54,8 +54,8 @@ class MoviesFeedViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-
         if let movieCell = cell as? MoviesFeedItemCell, let cellViewModel = viewModel?.content[indexPath.row] {
             
             movieCell.configure(with: cellViewModel)

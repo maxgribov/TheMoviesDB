@@ -35,7 +35,7 @@ class ServerAgent: ServerAgentProtocol {
         }
     }
     
-    func execute<Result>(request: URLRequest, completion: @escaping (ServerResponse<Result, ServerAgentError>) -> Void) where Result : Decodable {
+    private func execute<Result>(request: URLRequest, completion: @escaping (ServerResponse<Result, ServerAgentError>) -> Void) where Result : Decodable {
         
         session.dataTask(with: request) { data, response, error in
             
@@ -64,7 +64,7 @@ class ServerAgent: ServerAgentProtocol {
         }.resume()
     }
     
-    func request<Command>(from command: Command) -> URLRequest? where Command : ServerCommand {
+    private func request<Command>(from command: Command) -> URLRequest? where Command : ServerCommand {
         
         guard let url = URL(string: baseURL + command.endpoint + "?api_key=\(apiKey)" + command.parameters) else {
             return nil

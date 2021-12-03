@@ -13,8 +13,6 @@ protocol ServerAgentProtocol {
     var apiKey: String { get }
     
     func execute<Command: ServerCommand, Result: Decodable>(command: Command, completion: @escaping (ServerResponse<Result, ServerAgentError>) -> Void)
-    func execute<Result: Decodable>(request: URLRequest, completion: @escaping (ServerResponse<Result, ServerAgentError>) -> Void)
-    func request<Command: ServerCommand>(from command: Command) -> URLRequest?
 }
 
 protocol ServerCommand {

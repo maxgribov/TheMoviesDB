@@ -22,6 +22,7 @@ class MoviesFeedItemCell: UITableViewCell {
     
         titleLabel.text = viewModel.titleText
         overviewTextView.text = viewModel.overviewText
+        //TODO: poster image placeholder
         self.viewModel = viewModel
         
         bind()
