@@ -63,4 +63,18 @@ class MoviesFeedViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let totalItems = viewModel?.content.count else {
+            return
+        }
+        
+        if indexPath.row == totalItems - 1 {
+            
+            viewModel?.action.send(MoviesFeedViewModelAction.DownloadNext())
+        }
+    }
 }

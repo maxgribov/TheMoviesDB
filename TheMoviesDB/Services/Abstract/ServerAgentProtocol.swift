@@ -21,7 +21,7 @@ protocol ServerCommand {
 
     var endpoint: String { get }
     var method: ServerCommandMethod { get }
-    var parameters: [String] { get }
+    var parameters: String { get }
 }
 
 enum ServerResponse<T: Decodable, E: Error> {

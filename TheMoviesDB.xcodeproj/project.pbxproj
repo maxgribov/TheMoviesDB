@@ -33,6 +33,7 @@
 		773AFEAA27598265007BC61F /* MoviesFeedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEA927598265007BC61F /* MoviesFeedItemViewModel.swift */; };
 		773AFEAC27598A3F007BC61F /* MoviesFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEAB27598A3F007BC61F /* MoviesFeedViewController.swift */; };
 		773AFEAE27598B2A007BC61F /* MoviesFeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEAD27598B2A007BC61F /* MoviesFeedItemCell.swift */; };
+		773AFEB0275996EE007BC61F /* ServerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFEAF275996EE007BC61F /* ServerAgent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		773AFEA927598265007BC61F /* MoviesFeedItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedItemViewModel.swift; sourceTree = "<group>"; };
 		773AFEAB27598A3F007BC61F /* MoviesFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedViewController.swift; sourceTree = "<group>"; };
 		773AFEAD27598B2A007BC61F /* MoviesFeedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedItemCell.swift; sourceTree = "<group>"; };
+		773AFEAF275996EE007BC61F /* ServerAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAgent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 		773AFE8F27596D81007BC61F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				773AFEAF275996EE007BC61F /* ServerAgent.swift */,
 				773AFEA327597D66007BC61F /* RemoteImageAgent.swift */,
 				773AFE9027596D97007BC61F /* Abstract */,
 				773AFE9327596F86007BC61F /* Server */,
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773AFEB0275996EE007BC61F /* ServerAgent.swift in Sources */,
 				773AFE9E2759756D007BC61F /* Model.swift in Sources */,
 				773AFEA8275981FD007BC61F /* MoviesFeedViewModel.swift in Sources */,
 				773AFE9A27597341007BC61F /* ServerAgentMock.swift in Sources */,

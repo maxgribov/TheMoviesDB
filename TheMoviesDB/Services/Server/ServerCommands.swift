@@ -15,12 +15,12 @@ enum ServerCommands {
         
         let endpoint = "/discover/movie"
         let method: ServerCommandMethod = .get
-        let parameters: [String]
+        let parameters: String
         
         init(page: Int) {
             
             self.page = page
-            self.parameters = ["&page=\(page)"]
+            self.parameters = "&page=\(page)"
         }
         
         struct Response: Decodable {
