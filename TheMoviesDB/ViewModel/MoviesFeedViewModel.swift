@@ -16,7 +16,7 @@ class MoviesFeedViewModel {
     private let model: Model
     private var bindings = Set<AnyCancellable>()
     
-    init(movie: Movie, model: Model) {
+    init(_ model: Model) {
         
         self.content = []
         self.model = model

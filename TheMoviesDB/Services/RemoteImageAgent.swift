@@ -51,6 +51,7 @@ class RemoteImageAgent: RemoteImageAgentProtocol {
             }
             
             completion(.succeed(image))
-        }
+            
+        }.resume()
     }
 }

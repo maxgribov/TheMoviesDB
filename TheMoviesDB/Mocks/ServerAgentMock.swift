@@ -23,7 +23,7 @@ class ServerAgentMock: ServerAgentProtocol {
             case _ as ServerCommands.Discover:
                 
                 do {
-                    let url = self.bundle.url(forResource: "DiscoverResponse", withExtension: "json")!
+                    let url = self.bundle.url(forResource: "DiscoverResponseMock", withExtension: "json")!
                     let json = try Data(contentsOf: url)
                     let result = try self.decoder.decode(Result.self, from: json)
                     

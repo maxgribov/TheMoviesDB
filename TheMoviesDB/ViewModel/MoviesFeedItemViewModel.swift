@@ -13,6 +13,7 @@ class MoviesFeedItemViewModel {
     
     let id: Movie.ID
     let titleText: String
+    let overviewText: String
     @Published var posterImage: UIImage?
     
     private let model: Model
@@ -22,6 +23,7 @@ class MoviesFeedItemViewModel {
         
         self.id = movie.id
         self.titleText = movie.title
+        self.overviewText = movie.overview
         self.posterImage = nil
         self.model = model
         
