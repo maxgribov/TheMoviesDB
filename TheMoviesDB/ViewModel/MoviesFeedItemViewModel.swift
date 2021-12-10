@@ -22,15 +22,19 @@ class MoviesFeedItemViewModel {
     init(movie: Movie, model: Model) {
         
         self.id = movie.id
-        self.titleText = movie.title
+        self.titleText = Self.prepareTitle(movie: movie)
         self.overviewText = movie.overview
         self.posterImage = nil
         self.model = model
-        
+
         bind()
-        
-        // download image
+//
+//        // download image
         model.action.send(ModelAction.MoviePoster.Requested(movie: movie))
+    }
+   
+    static func prepareTitle(movie: Movie) -> String {
+        movie.title.capitalized
     }
     
     private func bind() {

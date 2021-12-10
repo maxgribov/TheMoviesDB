@@ -13,7 +13,7 @@ import UIKit
 class Model {
     
     let action: PassthroughSubject<Action, Never> = .init()
-    var movies: CurrentValueSubject<[Movie], Never> = .init([])
+    private (set) var movies: CurrentValueSubject<[Movie], Never> = .init([])
     
     private let serverAgent: ServerAgentProtocol
     private let remoteImageAgent: RemoteImageAgentProtocol
@@ -96,6 +96,7 @@ enum ModelAction {
         
         struct Failed: Action {
             
+//            let movieId: Movie.ID
             let error: Error
         }
     }
