@@ -43,7 +43,7 @@ class LocalAgent: LocalAgentProtocol {
         
     }
     
-    func load<T>(type: T.Type) -> (data: [T], serial: Int?)? where T : Cachable {
+    func load<T>(type: T.Type) -> [T]? where T : Cachable {
 
         let fileName = fileName(for: type)
         
@@ -52,14 +52,19 @@ class LocalAgent: LocalAgentProtocol {
             let data = try Data(contentsOf: fileURL(with: fileName))
             let decodedData = try JSONDecoder.movieDB.decode([T].self, from: data)
             
-            let serial = serials[fileName]
-            
-            return (decodedData, serial)
+            return decodedData
             
         } catch  {
             
             return nil
         }
+    }
+    
+    func serial<T>(for type: T.Type) -> Int? where T : Cachable {
+        
+        let fileName = fileName(for: type)
+        
+        return serials[fileName]
     }
     
     func rootFolderURL() throws -> URL {

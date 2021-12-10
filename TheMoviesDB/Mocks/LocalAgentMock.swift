@@ -19,7 +19,7 @@ class LocalAgentMock: LocalAgentProtocol {
         serials[fileName] = serial
     }
     
-    func load<T>(type: T.Type) -> (data: [T], serial: Int?)? where T : Cachable {
+    func load<T>(type: T.Type) -> [T]? where T : Cachable {
 
         let fileName = fileName(for: type)
         
@@ -27,8 +27,13 @@ class LocalAgentMock: LocalAgentProtocol {
             return nil
         }
         
-        let serial = serials[fileName]
+        return data
+    }
+    
+    func serial<T>(for type: T.Type) -> Int? where T : Cachable {
         
-        return (data, serial)
+        let fileName = fileName(for: type)
+        
+        return serials[fileName]
     }
 }

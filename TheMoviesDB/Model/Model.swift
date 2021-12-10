@@ -67,7 +67,7 @@ class Model {
                                 logger.error("store to cache movies data error: \(error.localizedDescription)")
                             }
                         }
-
+                        
                         
                     case .failed(let error):
                         logger.error("fetching next movies page error: \(error.localizedDescription)")
@@ -82,7 +82,7 @@ class Model {
                     switch response {
                     case .succeed(let image):
                         self.action.send(ModelAction.MoviePoster.Complete(movieId: payload.movie.id, image: image))
-                    
+                        
                     case .failed(let error):
                         self.action.send(ModelAction.MoviePoster.Failed(error: error))
                     }
@@ -98,11 +98,12 @@ class Model {
     private func loadCachedData(completion: @escaping (Bool) -> Void) {
         
         queue.async { [unowned self] in
-        
-            if let cachedMovies = loacalAgent.load(type: Movie.self) {
+            
+            if let cachedMovies = loacalAgent.load(type: Movie.self),
+               let serial = loacalAgent.serial(for: Movie.self) {
                 
-                movies.value = cachedMovies.data
-                currentPage = cachedMovies.serial ?? 0
+                movies.value = cachedMovies
+                currentPage = serial
                 completion(true)
                 
             } else {
@@ -134,7 +135,7 @@ enum ModelAction {
         
         struct Failed: Action {
             
-//            let movieId: Movie.ID
+            //            let movieId: Movie.ID
             let error: Error
         }
     }
