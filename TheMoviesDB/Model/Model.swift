@@ -84,7 +84,7 @@ class Model {
                         self.action.send(ModelAction.MoviePoster.Complete(movieId: payload.movie.id, image: image))
                         
                     case .failed(let error):
-                        self.action.send(ModelAction.MoviePoster.Failed(error: error))
+                        self.action.send(ModelAction.MoviePoster.Failed(movieId:payload.movie.id, error: error))
                     }
                 }
                 
@@ -135,7 +135,7 @@ enum ModelAction {
         
         struct Failed: Action {
             
-            //            let movieId: Movie.ID
+            let movieId: Movie.ID
             let error: Error
         }
     }
