@@ -17,20 +17,29 @@ class Model {
     
     private let serverAgent: ServerAgentProtocol
     private let remoteImageAgent: RemoteImageAgentProtocol
+    private let loacalAgent: LocalAgentProtocol
     
     private var bindings = Set<AnyCancellable>()
     private var currentPage = 0
     private let logger = Logger(subsystem: "com.maxgribov.TheMovieDB", category: "Model")
+    private let queue = DispatchQueue(label: "pro.maxgribov.TheMoviesDB.model", qos: .userInitiated, attributes: .concurrent)
     
-    init(serverAgent: ServerAgentProtocol, remoteImageAgent: RemoteImageAgentProtocol) {
+    init(serverAgent: ServerAgentProtocol, remoteImageAgent: RemoteImageAgentProtocol, loacalAgent: LocalAgentProtocol) {
         
         self.serverAgent = serverAgent
         self.remoteImageAgent = remoteImageAgent
+        self.loacalAgent = loacalAgent
         
         bind()
         
-        // download initial movies page
-        action.send(ModelAction.DiscoverNextMovies())
+        loadCachedData {[unowned self] result in
+            
+            if result == false {
+                
+                // download initial movies page
+                action.send(ModelAction.DiscoverNextMovies())
+            }
+        }
     }
     
     private func bind() {
@@ -47,9 +56,21 @@ class Model {
                     case .succeed(let response):
                         movies.value.append(contentsOf: response.results)
                         currentPage = discoveringPage
+                        queue.async {
+                            
+                            do {
+                                
+                                try loacalAgent.store(movies.value, serial: discoveringPage)
+                                
+                            } catch  {
+                                
+                                logger.error("store to cache movies data error: \(error.localizedDescription)")
+                            }
+                        }
+
                         
                     case .failed(let error):
-                        logger.error("\(error.localizedDescription)")
+                        logger.error("fetching next movies page error: \(error.localizedDescription)")
                     }
                 }
                 
@@ -72,6 +93,23 @@ class Model {
             }
             
         }.store(in: &bindings)
+    }
+    
+    private func loadCachedData(completion: @escaping (Bool) -> Void) {
+        
+        queue.async { [unowned self] in
+        
+            if let cachedMovies = loacalAgent.load(type: Movie.self) {
+                
+                movies.value = cachedMovies.data
+                currentPage = cachedMovies.serial ?? 0
+                completion(true)
+                
+            } else {
+                
+                completion(false)
+            }
+        }
     }
 }
 

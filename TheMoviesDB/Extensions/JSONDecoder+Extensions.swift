@@ -12,8 +12,7 @@ extension JSONDecoder {
     static let movieDB: JSONDecoder = {
        
         let decoder = JSONDecoder()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd" // "2017-10-25"
+        let formatter = DateFormatter.movieDB
         decoder.dateDecodingStrategy = .formatted(formatter)
         
         return decoder
