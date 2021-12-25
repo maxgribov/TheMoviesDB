@@ -8,7 +8,7 @@
 import Foundation
 
 class LocalAgentMock: LocalAgentProtocol {
-    
+
     var cache: [String: [Codable]] = [:]
     var serials: [String: Int] = [:]
     
@@ -28,6 +28,13 @@ class LocalAgentMock: LocalAgentProtocol {
         }
         
         return data
+    }
+    
+    func clear<T>(type: T.Type) throws where T : Cachable {
+        
+        let fileName = fileName(for: type)
+        cache[fileName] = nil
+        serials[fileName] = nil
     }
     
     func serial<T>(for type: T.Type) -> Int? where T : Cachable {

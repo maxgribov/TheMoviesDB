@@ -31,15 +31,16 @@ class MoviesFeedViewModel {
             .sink { [unowned self] movies in
                 
                 let contentIds = content.map{ $0.id }
-                
+                var updated = content
                 for movie in movies {
                     
                     guard contentIds.contains(movie.id) == false else {
                         continue
                     }
                     
-                    content.append(MoviesFeedItemViewModel(movie: movie, model: model))
+                    updated.append(MoviesFeedItemViewModel(movie: movie, model: model))
                 }
+                content = updated
                 
             }.store(in: &bindings)
         

@@ -11,6 +11,7 @@ protocol LocalAgentProtocol {
     
     func store<T>(_ data: [T], serial: Int?) throws where T: Cachable
     func load<T>(type: T.Type) -> [T]? where T : Cachable
+    func clear<T>(type: T.Type) throws where T: Cachable
     func serial<T>(for type: T.Type) -> Int? where T : Cachable
     func fileName<T>(for type: T.Type) -> String
 }

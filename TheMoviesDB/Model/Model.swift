@@ -32,6 +32,17 @@ class Model {
         
         bind()
         
+        /*
+        do {
+            
+            try loacalAgent.clear(type: Movie.self)
+            
+        } catch {
+            
+            print("Model: cache cleaning for Movie error: \(error.localizedDescription)")
+        }
+         */
+
         loadCachedData {[unowned self] result in
             
             if result == false {

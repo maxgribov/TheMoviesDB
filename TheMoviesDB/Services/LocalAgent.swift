@@ -60,6 +60,16 @@ class LocalAgent: LocalAgentProtocol {
         }
     }
     
+    func clear<T>(type: T.Type) throws where T: Cachable {
+        
+        let fileName = fileName(for: type)
+        try fileManager.removeItem(at: fileURL(with: fileName))
+        
+        serials[fileName] = nil
+        let serialsData = try JSONEncoder().encode(serials)
+        try serialsData.write(to: fileURL(with: serialsFileName))
+    }
+    
     func serial<T>(for type: T.Type) -> Int? where T : Cachable {
         
         let fileName = fileName(for: type)

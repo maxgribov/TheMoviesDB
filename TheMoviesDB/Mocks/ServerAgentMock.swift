@@ -20,7 +20,13 @@ class ServerAgentMock: ServerAgentProtocol {
         DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(200)) {
             
             switch command {
-            case _ as ServerCommands.Discover:
+            case let payload as ServerCommands.Discover:
+                
+                guard payload.page == 1 else {
+                    
+                    completion(.failed(.emptyData))
+                    return
+                }
                 
                 do {
                     let url = self.bundle.url(forResource: "DiscoverResponseMock", withExtension: "json")!
