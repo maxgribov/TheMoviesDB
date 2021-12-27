@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77096ADF277A218700F3D4A9 /* MainScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77096ADE277A218700F3D4A9 /* MainScreenUITests.swift */; };
 		772D80A627779D0A0035B794 /* RemoteImageAgentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772D80A527779D0A0035B794 /* RemoteImageAgentMock.swift */; };
 		773AFE4F27595FE7007BC61F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE4E27595FE7007BC61F /* AppDelegate.swift */; };
 		773AFE5127595FE7007BC61F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AFE5027595FE7007BC61F /* SceneDelegate.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77096ADE277A218700F3D4A9 /* MainScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenUITests.swift; sourceTree = "<group>"; };
 		772D80A527779D0A0035B794 /* RemoteImageAgentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageAgentMock.swift; sourceTree = "<group>"; };
 		773AFE4B27595FE7007BC61F /* TheMoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773AFE4E27595FE7007BC61F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		773AFE6E27595FE9007BC61F /* TheMoviesDBUITests */ = {
 			isa = PBXGroup;
 			children = (
+				77096ADE277A218700F3D4A9 /* MainScreenUITests.swift */,
 				773AFE6F27595FE9007BC61F /* TheMoviesDBUITests.swift */,
 				773AFE7127595FE9007BC61F /* TheMoviesDBUITestsLaunchTests.swift */,
 			);
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77096ADF277A218700F3D4A9 /* MainScreenUITests.swift in Sources */,
 				773AFE7027595FE9007BC61F /* TheMoviesDBUITests.swift in Sources */,
 				773AFE7227595FE9007BC61F /* TheMoviesDBUITestsLaunchTests.swift in Sources */,
 			);
