@@ -24,12 +24,12 @@ class MoviesFeedItemViewModel {
         self.id = movie.id
         self.titleText = Self.prepareTitle(movie: movie)
         self.overviewText = movie.overview
-        self.posterImage = nil
+        self.posterImage = UIImage(named: "Poster Placeholder")
         self.model = model
 
         bind()
-//
-//        // download image
+        
+        // download image
         model.action.send(ModelAction.MoviePoster.Requested(movie: movie))
     }
    

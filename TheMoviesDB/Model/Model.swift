@@ -14,6 +14,7 @@ class Model {
     
     let action: PassthroughSubject<Action, Never> = .init()
     private (set) var movies: CurrentValueSubject<[Movie], Never> = .init([])
+    private (set) var favorites: CurrentValueSubject<[MovieId], Never> = .init([])
     
     private let serverAgent: ServerAgentProtocol
     private let remoteImageAgent: RemoteImageAgentProtocol
@@ -106,9 +107,36 @@ class Model {
         }.store(in: &bindings)
     }
     
+    func isFavorite(movieId: MovieId) -> Bool {
+        
+        favorites.value.contains(where: { $0 == movieId })
+    }
+    
+    func updateFavorite(movieId: MovieId, isFavorite: Bool) {
+        
+        var updated = Set(favorites.value)
+        
+        if isFavorite == true {
+     
+            updated.insert(movieId)
+            
+        } else {
+            
+            updated.remove(movieId)
+        }
+        
+        favorites.value = Array(updated)
+        try? loacalAgent.store(favorites.value, serial: nil)
+    }
+    
     private func loadCachedData(completion: @escaping (Bool) -> Void) {
         
         queue.async { [unowned self] in
+            
+            if let cachedFavorites = loacalAgent.load(type: MovieId.self) {
+                
+                favorites.value = cachedFavorites
+            } 
             
             if let cachedMovies = loacalAgent.load(type: Movie.self),
                let serial = loacalAgent.serial(for: Movie.self) {
@@ -123,6 +151,11 @@ class Model {
             }
         }
     }
+}
+
+extension Model {
+    
+    static let mock = Model(serverAgent: ServerAgentMock(), remoteImageAgent: RemoteImageAgentMock(), loacalAgent: LocalAgentMock())
 }
 
 //MARK: - Action

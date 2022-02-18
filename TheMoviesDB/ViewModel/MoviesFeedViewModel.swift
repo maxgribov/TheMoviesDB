@@ -50,6 +50,13 @@ class MoviesFeedViewModel {
             case _ as MoviesFeedViewModelAction.DownloadNext:
                 model.action.send(ModelAction.DiscoverNextMovies())
                 
+            case let payload as MoviesFeedViewModelAction.DidSelectItem:
+                guard let movie = model.movies.value.first(where: { $0.id == payload.movieId}) else {
+                    return
+                }
+                let detailViewModel = MoviesDetailViewModel(movie: movie, model: model)
+                self.action.send(MoviesFeedViewModelAction.ShowDetail(viewModel: detailViewModel))
+                
             default:
                 break
             }
@@ -63,5 +70,13 @@ class MoviesFeedViewModel {
 enum MoviesFeedViewModelAction {
 
     struct DownloadNext: Action {}
+    
+    struct DidSelectItem: Action {
+        let movieId: Movie.ID
+    }
+    
+    struct ShowDetail: Action {
+        let viewModel: MoviesDetailViewModel
+    }
 }
 

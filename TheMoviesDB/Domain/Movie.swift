@@ -7,9 +7,13 @@
 
 import Foundation
 
+typealias MovieId = Int
+
+extension MovieId: Cachable {}
+
 struct Movie: Cachable, Identifiable, Hashable {
     
-    let id: Int
+    let id: MovieId
     let title: String
     let overview: String
     let release: Date

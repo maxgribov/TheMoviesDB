@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lor-aD-L4W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Ir-Eu-X1p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -11,7 +11,7 @@
         <scene sceneID="g74-RO-IG5">
             <objects>
                 <tableViewController id="uRy-Sa-FFq" customClass="MoviesFeedViewController" customModule="TheMoviesDB" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="188" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lto-Qe-trE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="188" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lto-Qe-trE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,15 +75,47 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="The Movies DB" id="hNW-lp-ecT"/>
+                    <connections>
+                        <segue destination="Iek-0b-CFZ" kind="show" identifier="Detail" id="dQL-oZ-BUR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EC2-cE-IKE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633.33333333333337" y="154.6875"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Movies Detail Hosting View Controller-->
+        <scene sceneID="zRv-5Q-VFt">
+            <objects>
+                <hostingController id="Iek-0b-CFZ" customClass="MoviesDetailHostingViewController" customModule="TheMoviesDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="p0o-ji-BDM"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSY-Am-L2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1477" y="155"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="K7k-CW-SSk">
+            <objects>
+                <tabBarController id="5Ir-Eu-X1p" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qad-6E-A7X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lor-aD-L4W" kind="relationship" relationship="viewControllers" id="ZRO-c1-Gcr"/>
+                        <segue destination="Kgk-NV-gkC" kind="relationship" relationship="viewControllers" id="Vfx-JJ-xrL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEH-Y0-TVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1393" y="505"/>
+        </scene>
+        <!--Feed-->
         <scene sceneID="6z2-2P-SxE">
             <objects>
                 <navigationController id="lor-aD-L4W" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="ticket" catalog="system" id="Nci-o7-w3P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a9e-dg-zpX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -96,8 +128,20 @@
             </objects>
             <point key="canvasLocation" x="-255" y="155"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="Ajz-Ps-mr1">
+            <objects>
+                <hostingController id="Kgk-NV-gkC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="fAh-M5-Acy"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvf-Mg-ZIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255" y="847"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="ticket" catalog="system" width="128" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

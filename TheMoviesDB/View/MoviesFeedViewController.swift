@@ -39,7 +39,23 @@ class MoviesFeedViewController: UITableViewController {
                 tableView.reloadData()
                 
             }).store(in: &bindings)
+        
+        viewModel?.action
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [unowned self] action in
+                
+                switch action {
+                case let payload as MoviesFeedViewModelAction.ShowDetail:
+                    let detailViewController = MoviesDetailHostingViewController(with: payload.viewModel)
+                    navigationController?.pushViewController(detailViewController, animated: true)
+                    
+                default:
+                    break
+                }
+                
+            }).store(in: &bindings)
     }
+    
 
     // MARK: - Table view data source
 
@@ -76,5 +92,15 @@ class MoviesFeedViewController: UITableViewController {
             
             viewModel?.action.send(MoviesFeedViewModelAction.DownloadNext())
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        let item = viewModel.content[indexPath.item]
+        viewModel.action.send(MoviesFeedViewModelAction.DidSelectItem(movieId: item.id))
     }
 }
