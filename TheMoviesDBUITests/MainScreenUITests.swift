@@ -20,27 +20,12 @@ class MainScreenUITests: XCTestCase {
         
         // when
         let tablesQuery = XCUIApplication().tables
-        let test1Cell = tablesQuery.cells.element(boundBy: 0)
-        let titleLabel = test1Cell.children(matching: .staticText).element
+        let firstTableCell = tablesQuery.cells.element(boundBy: 0)
+        let firstTableCellLabels = firstTableCell.children(matching: .staticText)
+        let titleLabel = firstTableCellLabels.matching(identifier: "Movie Title").firstMatch
         
         // then
         XCTAssertEqual(titleLabel.label, expected)
     }
     
-    func testFirstItemTitle2() throws {
-   
-        // given
-        let app = XCUIApplication()
-        app.launchArguments += ["UI-TESTING"]
-        app.launch()
-        let expected = "Test 1"
-        
-        // when
-        let tablesQuery = XCUIApplication().tables
-        let test1Cell = tablesQuery.cells.element(boundBy: 0)
-        let titleLabel = test1Cell.children(matching: .staticText).element
-        
-        // then
-        XCTAssertEqual(titleLabel.label, expected)
-    }
 }
