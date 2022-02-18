@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RemoteImageAgentMock: RemoteImageAgentProtocol {
     
@@ -13,7 +14,12 @@ class RemoteImageAgentMock: RemoteImageAgentProtocol {
     
     func loadImage(for movie: Movie, completion: @escaping (RemoteImageAgentResponse) -> Void) {
         
-        completion(.failed(.emptyData))
+        guard let image = UIImage(named: "Sample Poster Image") else {
+            completion(.failed(.emptyData))
+            return
+        }
+        
+        completion(.succeed(image))
     }
 
 }
