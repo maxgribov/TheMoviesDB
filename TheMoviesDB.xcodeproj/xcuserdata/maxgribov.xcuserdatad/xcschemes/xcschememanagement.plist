@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TheMoviesDB-UI-Testing.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>TheMoviesDB.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>

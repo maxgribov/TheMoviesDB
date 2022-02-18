@@ -28,4 +28,17 @@ class MainScreenUITests: XCTestCase {
         XCTAssertEqual(titleLabel.label, expected)
     }
     
+    func testFirstItem_MakeFavorite() throws {
+   
+        // given
+        let app = XCUIApplication()
+        app.launchArguments += ["UI-TESTING"]
+        app.launch()
+        
+        // when
+                    
+             
+         
+    }
+    
 }

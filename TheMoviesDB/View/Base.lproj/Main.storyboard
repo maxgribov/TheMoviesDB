@@ -38,7 +38,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdg-bP-bxR">
                                                             <rect key="frame" x="0.0" y="0.0" width="269" height="6"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="6" id="lnd-qp-yhO"/>
                                                             </constraints>
@@ -55,7 +55,7 @@
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDq-oO-FXe">
                                                                     <rect key="frame" x="43.5" y="0.0" width="213" height="20.5"/>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aTN-Uf-2BX">
                                                                     <rect key="frame" x="256.5" y="2" width="12.5" height="17"/>
@@ -76,7 +76,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NoV-Bg-Nm8">
                                                             <rect key="frame" x="0.0" y="62.5" width="269" height="6"/>
                                                             <viewLayoutGuide key="safeArea" id="MFZ-2L-BG4"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="6" id="o0D-3l-Esq"/>
                                                             </constraints>
