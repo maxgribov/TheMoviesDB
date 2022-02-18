@@ -114,19 +114,30 @@ class Model {
     
     func updateFavorite(movieId: MovieId, isFavorite: Bool) {
         
-        var updated = Set(favorites.value)
+        var updated = favorites.value
         
         if isFavorite == true {
      
-            updated.insert(movieId)
+            guard updated.contains(where: { $0 == movieId}) == false else {
+                return
+            }
+            updated.append(movieId)
             
         } else {
             
-            updated.remove(movieId)
+            guard let index = updated.firstIndex(of: movieId) else {
+                return
+            }
+            updated.remove(at: index)
         }
         
-        favorites.value = Array(updated)
-        try? loacalAgent.store(favorites.value, serial: nil)
+        favorites.value = updated
+        
+        // cache favorites
+        queue.async { [unowned self] in
+            
+            try? loacalAgent.store(favorites.value, serial: nil)
+        }
     }
     
     private func loadCachedData(completion: @escaping (Bool) -> Void) {

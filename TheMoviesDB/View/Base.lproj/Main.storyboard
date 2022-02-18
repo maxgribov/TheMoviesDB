@@ -131,7 +131,7 @@
         <!--Favorites-->
         <scene sceneID="Ajz-Ps-mr1">
             <objects>
-                <hostingController id="Kgk-NV-gkC" sceneMemberID="viewController">
+                <hostingController id="Kgk-NV-gkC" customClass="MoviesFavoritesHoustingViewController" customModule="TheMoviesDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="fAh-M5-Acy"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvf-Mg-ZIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
