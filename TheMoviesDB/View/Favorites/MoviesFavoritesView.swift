@@ -53,6 +53,7 @@ extension MoviesFavoritesView {
                         
                         Text(viewModel.titleText)
                             .font(.system(size: 17, weight: .semibold))
+                            .accessibilityIdentifier("Favorites Movie Title")
                         
                         Text(viewModel.overviewText)
                             .font(.system(size: 15, weight: .regular))
