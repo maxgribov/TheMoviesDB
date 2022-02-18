@@ -56,10 +56,10 @@ extension MoviesFavoritesView {
                         
                         Text(viewModel.overviewText)
                             .font(.system(size: 15, weight: .regular))
-                            .multilineTextAlignment(.leading)
+                        
                         Spacer()
                         
-                    }.padding(.bottom, 8)
+                    }.padding(.vertical, 6)
                     
                     Spacer()
                 }
