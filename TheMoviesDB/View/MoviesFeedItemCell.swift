@@ -13,7 +13,7 @@ class MoviesFeedItemCell: UITableViewCell {
     var viewModel: MoviesFeedItemViewModel?
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
     private var bindings = Set<AnyCancellable>()
@@ -21,7 +21,7 @@ class MoviesFeedItemCell: UITableViewCell {
     func configure(with viewModel: MoviesFeedItemViewModel) {
     
         titleLabel.text = viewModel.titleText
-        overviewTextView.text = viewModel.overviewText
+        overviewLabel.text = viewModel.overviewText
         //TODO: poster image placeholder
         self.viewModel = viewModel
         
@@ -44,7 +44,7 @@ class MoviesFeedItemCell: UITableViewCell {
         bindings = Set<AnyCancellable>()
         viewModel = nil
         titleLabel.text = nil
-        overviewTextView.text = nil
+        overviewLabel.text = nil
         posterImageView.image = nil
     }
 }
